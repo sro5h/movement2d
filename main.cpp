@@ -75,12 +75,12 @@ int main()
 
 sf::Vector2f rotate(sf::Vector2f v, const float angle)
 {
-        sf::Vector2f tmp = v;
+        sf::Vector2f copy = v;
         float cs = std::cos(angle * (3.14159 / 180));
         float sn = std::sin(angle * (3.14159 / 180));
 
-        v.x = tmp.x * cs - tmp.y * sn;
-        v.y = tmp.x * sn + tmp.y * cs;
+        v.x = copy.x * cs - copy.y * sn;
+        v.y = copy.x * sn + copy.y * cs;
 
         return v;
 }
