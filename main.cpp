@@ -8,6 +8,7 @@ int main()
 {
         sf::RenderWindow window(sf::VideoMode(600, 600), "App");
         window.setMouseCursorVisible(false);
+        window.setMouseCursorGrabbed(true);
 
         sf::Texture texture;
         if (!texture.loadFromFile("texture.jpg"))
@@ -47,7 +48,7 @@ int main()
                 sf::Vector2i delta = center - sf::Mouse::getPosition(window);
                 if (delta != sf::Vector2i(0, 0))
                 {
-                        rotation += delta.x / 10;
+                        rotation += delta.x / 20.0f;
                         sf::Mouse::setPosition(center, window);
                 }
 
