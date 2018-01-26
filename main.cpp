@@ -48,7 +48,7 @@ int main()
                 sf::Vector2i delta = center - sf::Mouse::getPosition(window);
                 if (delta != sf::Vector2i(0, 0))
                 {
-                        rotation += delta.x / 20.0f;
+                        rotation += delta.x / 45.0f;
                         sf::Mouse::setPosition(center, window);
                 }
 
