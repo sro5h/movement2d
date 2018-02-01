@@ -19,7 +19,7 @@ int main()
         sf::Sprite background;
         background.setTexture(texture);
 
-        const sf::Vector2i center(300.0f, 300.0f);
+        const float sensitivity = 0.05f;
         float rotation = 0.0f;
 
         const float speed = 200;
@@ -42,14 +42,11 @@ int main()
                         {
                                 window.close();
                         }
-                }
-
-                // Handle mouse movement, update rotation
-                sf::Vector2i delta = center - sf::Mouse::getPosition(window);
-                if (delta != sf::Vector2i(0, 0))
-                {
-                        rotation += delta.x / 45.0f;
-                        sf::Mouse::setPosition(center, window);
+                        else if (event.type == sf::Event::MouseMovedRaw)
+                        {
+                                int deltaX = event.mouseMoveRaw.dx;
+                                rotation += deltaX * sensitivity;
+                        }
                 }
 
                 // Handle keyboard movement, update position
@@ -59,8 +56,6 @@ int main()
                 movement = rotate(movement, rotation);
                 circle.move(movement * speed * dt.asSeconds());
 
-                // Update the view
-                //sf::View view({ 300, 300 }, { 600, -600 });
                 sf::View view;
                 view.setSize(600, -600);
                 view.setRotation(rotation);

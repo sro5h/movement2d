@@ -3,7 +3,7 @@ RM = rm
 CXXFLAGS = -I. -Wall -Wextra -std=c++14
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
-PROJECT = app
+PROJECT = a.out
 PROJECT_HEADERS =
 PROJECT_SOURCES = main.cpp
 PROJECT_OBJECTS = $(subst .cpp,.o,$(PROJECT_SOURCES))
